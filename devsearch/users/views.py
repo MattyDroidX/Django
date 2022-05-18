@@ -5,5 +5,5 @@ from .models import Profile
 
 def profiles(request):
     profiles = Profile.objects.all()
-    context = {'profile': profiles}
+    context = {'profiles': profiles}
     return render(request, 'users/profiles.html', context)
