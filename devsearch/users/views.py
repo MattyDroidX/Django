@@ -10,6 +10,7 @@ from .models import Profile
 
 
 def loginUser(request):
+    page = 'register'
 
     if request.user.is_authenticated:
         return redirect('profiles')
@@ -36,6 +37,12 @@ def logoutUser(request):
     logout(request)
     messages.error(request, 'User was logged out!')
     return redirect('login')
+
+
+def registerUser(request):
+    page = 'register'
+    context = {}
+    return render(request, 'users/login_register.html', context)
 
 
 def profiles(request):
